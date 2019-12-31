@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="100mm"
+   viewBox="0 0 200 100"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="logo_one_path.svg"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="278.27002"
+     inkscape:cy="221.72358"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2558"
+     inkscape:window-height="993"
+     inkscape:window-x="0"
+     inkscape:window-y="43"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-197)">
+    <path
+       id="rect860"
+       transform="scale(-1)"
+       style="opacity:1;fill:#0d0d0d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:9.70723152;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="m -31.277281,-277.68979 h 16.038023 v 64.96284 h -16.038023 z m -32.4247,0 h 16.038023 v 64.96284 h -16.038023 z m -45.595629,51.51341 h -16.03802 v -51.51342 h 16.03802 z m -30.81682,0 h -16.03802 v -51.51342 h 16.03802 z m -46.85487,3e-5 v -16.03802 h 77.67167 v 16.03802 z m 16.03803,-3e-5 h -16.03803 v -51.51342 h 16.03803 z m 45.59565,-51.51341 h 16.03803 v 51.51343 h -16.03803 z m 30.816821,0 h 16.038023 v 51.51343 h -16.038023 z m 46.854851,0 v 16.03802 h -77.671672 v -16.03802 z m -16.038033,32.14101 v -16.03803 h 48.462719 v 16.03803 z m 0,-32.14101 h 16.038023 v 64.96284 h -16.038023 z m 0,64.96285 v -16.03803 h 48.462719 v 16.03803 z"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

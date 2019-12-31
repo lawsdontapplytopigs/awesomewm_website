@@ -1,0 +1,11 @@
+{
+  "name": "The AwesomeWM website",
+  "version": "1.0.0",
+  "description": "The AwesomeWM website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juganaru Adrian <lawsdontapplytopigs@gmail.com>",
+  "license": "GPL v2"
+}
