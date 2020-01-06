@@ -1,2 +1,7 @@
 
-./elm-stuff/
+elm-stuff/
+.cache/
+dist/
+node_modules
+
+
