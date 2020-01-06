@@ -125,21 +125,22 @@ block2 =
                 { author = "elenapan" 
                 , title = "Mechanical Love"
                 , likes = 10 
-                , img = "../../../resources/expo_placeholders/7.png"
-                , description = desc
-                , profileImg = "../../../resources/default_profile_pic.jpg"
+                , postPic = "../../../resources/expo_placeholders/7.png"
+                -- , profilePic = "../../../resources/default_profile_pic.jpg"
+                , profilePic = "../../../resources/elenapan_profile.png"
+                , datePosted = "06.01.2020"
                 }
             ]
 
 
-makePost { author, title, description, likes, img, profileImg } =
+makePost { author, title, likes, postPic, profilePic, datePosted} =
     let
         width = 400
         imageHeight = dontShowPastX 16 9 width
     in
     E.column
         [ E.width (E.px width)
-        , E.height (E.px 400)
+        , E.height (E.px 372)
         , EBackground.color (E.rgb255 246 246 246)
         ]
         -- [ E.html
@@ -159,7 +160,7 @@ makePost { author, title, description, likes, img, profileImg } =
             <| Html.div
                 [ Html.Attributes.style "width" ((String.fromInt width) ++ "px")
                 , Html.Attributes.style "height" ((String.fromInt imageHeight) ++ "px")
-                , Html.Attributes.style "background-image" ("url(" ++ img ++ ")")
+                , Html.Attributes.style "background-image" ("url(" ++ postPic ++ ")")
                 , Html.Attributes.style "background-size" "cover"
                 -- , Html.Attributes.style "background-position" "center"
                 ]
@@ -179,17 +180,16 @@ makePost { author, title, description, likes, img, profileImg } =
         --     , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
         --     , E.htmlAttribute <| Html.Attributes.style "max-height" ((String.fromInt imageHeight) ++ "px")
         --     ]
-        --     { src = img, description = "LLALALALA" }
+        --     { src = postPic, description = "LLALALALA" }
             
         , E.column
             [ E.width E.fill
             , E.height E.fill
-            , E.spacing 10
             ]
             [ E.row -- the row with the like, comment & other buttons
                 [ E.width E.fill 
                 -- , EBackground.color (E.rgb255 230 70 70)
-                , E.paddingXY 10 0
+                , E.paddingXY 14 0
                 , E.height (E.px 50)
                 ]
                 [ E.row
@@ -216,7 +216,9 @@ makePost { author, title, description, likes, img, profileImg } =
                     <| E.html (Icons.dots "1")
                 ]
             , E.row -- Likes and Comments row
-                [ E.paddingXY 12 0
+                [ E.width E.fill
+                , E.paddingEach { top = 0, right = 14, bottom = 14 , left = 14 }
+                -- , E.alignBottom
                 , E.spacing 12
                 , EFont.size 14
                 , EFont.family
@@ -227,9 +229,13 @@ makePost { author, title, description, likes, img, profileImg } =
                 [ E.text ((String.fromInt likes) ++ " Likes")
                 -- , E.text "·"
                 , E.text "16 Comments"
+                , E.el
+                    [ E.alignRight
+                    ]
+                    <| E.text datePosted
                 ]
             , E.el -- TITLE
-                [ E.paddingXY 12 0
+                [ E.paddingEach { top = 0, right = 0, bottom = 14 , left = 14 }
                 , EFont.color (E.rgb255 10 10 10)
                 , EFont.size 19
                 -- , EFont.letterSpacing 0.1
@@ -242,28 +248,25 @@ makePost { author, title, description, likes, img, profileImg } =
                     ]
                 ]
                 <| E.text title
-            , E.el
-                [ E.paddingXY 18 4
-                , EFont.color (E.rgb255 60 60 60)
-                , EFont.size 14
-                , EFont.regular
-                , EFont.family
-                    -- [ EFont.typeface "Montserrat Medium"
-                    [ EFont.typeface "Roboto"
-                    ]
-                ]
-                <| E.text "See entire post..."
-            , E.row -- bottom row: author info & date posted
-                [ E.paddingXY 12 0
+            , E.row -- author info
+                -- [ E.paddingXY 14 0
+                [ E.paddingEach { top = 0, right = 0, bottom = 8 , left = 14}
                 , E.width E.fill
-                , E.alignBottom
+                -- , E.alignBottom
                 ]
                 [ E.row
                     [ E.alignLeft
                     , E.spacing 3
                     ]
-                    [
-                    -- [ E.el
+                    [ E.image
+                        [ E.width (E.px 18)
+                        , E.height (E.px 18)
+                        -- , EBorder.rounded 8
+                        , E.htmlAttribute <| Html.Attributes.style "border-radius" "50%"
+                        , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
+                        ]
+                        { src = profilePic, description = "Profile Image" }
+                    -- , E.el
                     --     [ EFont.color (E.rgb255 60 60 60)
                     --     , EFont.size 14
                     --     , EFont.regular
@@ -273,14 +276,6 @@ makePost { author, title, description, likes, img, profileImg } =
                     --         ]
                     --     ]
                     --     <| E.text "By "
-                     E.image
-                        [ E.width (E.px 18)
-                        , E.height (E.px 18)
-                        -- , EBorder.rounded 8
-                        , E.htmlAttribute <| Html.Attributes.style "border-radius" "50%"
-                        , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
-                        ]
-                        { src = profileImg, description = "Profile Image" }
                     , E.el
                         [ EFont.size 14
                         , EFont.medium
@@ -291,17 +286,6 @@ makePost { author, title, description, likes, img, profileImg } =
                         ]
                         <| E.text author
                     ]
-                , E.el
-                    [ E.alignRight
-                    , EFont.color (E.rgb255 60 60 60)
-                    , EFont.size 14
-                    , EFont.regular
-                    , EFont.family
-                        -- [ EFont.typeface "Montserrat Medium"
-                        [ EFont.typeface "Roboto"
-                        ]
-                    ]
-                    <| E.text "05.01.2020"
                 ]
             -- , E.column
             --     [ 
@@ -318,6 +302,17 @@ makePost { author, title, description, likes, img, profileImg } =
             ]
         ]
 
+            -- , E.el
+            --     [ E.paddingXY 18 4
+            --     , EFont.color (E.rgb255 60 60 60)
+            --     , EFont.size 14
+            --     , EFont.regular
+            --     , EFont.family
+            --         -- [ EFont.typeface "Montserrat Medium"
+            --         [ EFont.typeface "Roboto"
+            --         ]
+            --     ]
+            --     <| E.text "See entire post..."
 
 -------------------
 -- Helpers
