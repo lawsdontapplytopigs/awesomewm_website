@@ -1,9 +1,7 @@
 
 elm-stuff/
-.cache/
+node_modules/
 dist/
-node_modules
-package-lock.json
+.cache/
 index.html
-
-
+package-lock.json
