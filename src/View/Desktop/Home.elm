@@ -41,7 +41,7 @@ block0 =
         E.el
             [ E.width E.fill
             , E.height (E.px 70)
-            , EBackground.color (E.rgb255 200 200 200)
+            , EBackground.color (E.rgb255 255 255 255)
             ]
             <| E.row
                 [ E.width (E.fill |> E.maximum 1440)
@@ -81,29 +81,64 @@ block0 =
 --         "
 
 
-
 block1 =
-    E.row
+    E.column
         [ E.width E.fill
-        , E.height (E.px 400)
-        ]
-        [ E.paragraph
-            [ E.width (E.px 500)
-            , E.centerY
-            , EFont.size 16
-            , EFont.family
-                [ EFont.typeface "Roboto"
+        , E.height (E.px 360)
+        , EBackground.gradient
+            { angle = 3.14
+            , steps = 
+                -- [ E.rgb255 20 30 70
+                -- , E.rgb255 20 20 70
+                -- ]
+                [ (E.rgb255 0 0 0)
+                , (E.rgb255 0 0 0)
+                , (E.rgb255 20 20 20)
+                , (E.rgb255 20 20 20)
+                , (E.rgb255 20 20 20)
+                , (E.rgb255 20 20 20)
+                , (E.rgb255 20 20 20)
+                , (E.rgb255 0 0 0)
                 ]
+            }
+        ]
+        [ E.column
+            [ E.htmlAttribute <| Html.Attributes.style "text-align" "center"
+            -- , E.centerY
+            , E.paddingEach { top = 140, right = 0, bottom = 0, left = 0}
+            , E.centerX
+            , E.spacing 10
+            , E.width (E.px 1440)
             -- , E.spacing 7
             ]
-            [ E.text  """Awesomewm is a highly configurable window manager framework for X. 
-                        It is very fast, extensible and licensed under the
-                        \"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\" GNU GPLv2 license.
-                        It is primarily targeted at power users, developers and any people dealing with
-                        every day computing tasks and who want to have fine-grained control on their
-                        graphical environment.
-                """
+            [ E.el 
+                [ E.centerX
+                , E.paddingEach { top = 0, right = 0, bottom = 40, left = 0}
+                , EFont.medium
+                , EFont.size 28
+                , EFont.color (E.rgb255 255 255 255)
+                , EFont.family
+                    [ EFont.typeface "Roboto"
+                    ]
+                ]
+                <| E.text "AwesomeWM: a highly configurable window manager framework for X."
+            , E.paragraph
+                [ E.centerX
+                , E.width (E.px 560)
+                , EFont.size 14
+                , EFont.color (E.rgb255 255 255 255)
+                , EFont.family
+                    [ EFont.typeface "Roboto"
+                    ]
+                ]
+                [ E.text "It is very fast, extensible and licensed under the "
+                , E.link [] { url = "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html", label = E.text "GNU GPLv2 license."}
+                , E.text """ Its target audience is power users, developers and any people dealing with
+                            every day computing tasks and who want to have fine-grained control on their
+                            graphical environment."""
+                ]
             ]
+        -- , E.image [] {src="", description = ""}
         ]
         -- [ E.text "Awesomewm is a highly configurable window manager framework for X."
         -- , E.text "It is very fast, extensible and licensed under the"
@@ -114,26 +149,73 @@ block1 =
         -- ]
 
 block2 =
-    E.el
-        [ EBackground.color <| E.rgb255 20 20 20
-        , E.height (E.px 800)
+    E.column
+        -- [ EBackground.color <| E.rgb255 
+        [ E.height (E.px 600)
         , E.width E.fill
+        , E.paddingXY 0 70
+        , E.spacing 40
         ]
-        <| E.column
-            []
+        [ E.el
+            [ E.width E.fill
+            , E.height (E.px 50)
+            ]
+            <| E.el
+                [ E.width (E.px 100)
+                , E.height (E.fill)
+                , E.centerX
+                , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
+                , EBackground.color (E.rgb255 20 20 20)
+                ]
+                <| E.el
+                    [ E.centerX
+                    , E.centerY
+                    , EFont.color (E.rgb255 10 10 10)
+                    , EFont.size 19
+                    , EFont.color (E.rgb255 255 255 255)
+                    , EFont.extraBold
+                    , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
+                    , EFont.family
+                        -- [ EFont.typeface "Montserrat Medium"
+                        [ EFont.typeface "Roboto Condensed"
+                        ]
+                    ]
+                    <| E.text "Expo"
+        , E.row
+            [ E.width (E.px 1440)
+            , E.centerX
+            , E.spacing 80
+            ]
             [ makePost 
                 { author = "elenapan" 
                 , title = "Mechanical Love"
-                , likes = 10 
+                , likes = 231
                 , postPic = "../../../resources/expo_placeholders/7.png"
                 -- , profilePic = "../../../resources/default_profile_pic.jpg"
                 , profilePic = "../../../resources/elenapan_profile.png"
                 , datePosted = "06.01.2020"
                 }
+            , makePost
+                { author = "Elv13" 
+                , title = "Matrix Multiplication"
+                , likes = 113
+                , postPic = "../../../resources/expo_placeholders/3.png"
+                , profilePic = "../../../resources/default_profile_pic.jpg"
+                , datePosted = "06.01.2020"
+                }
+            , makePost
+                { author = "szorfein" 
+                , title = "Anonymous"
+                , likes = 207
+                , postPic = "../../../resources/expo_placeholders/4.jpg"
+                , profilePic = "../../../resources/default_profile_pic.jpg"
+                , datePosted = "06.01.2020"
+                }
             ]
+        ]
 
 
-makePost { author, title, likes, postPic, profilePic, datePosted} =
+makePost { author, title, likes, postPic, profilePic, datePosted } =
     let
         width = 400
         imageHeight = dontShowPastX 16 9 width
@@ -256,7 +338,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted} =
                 ]
                 [ E.row
                     [ E.alignLeft
-                    , E.spacing 3
+                    , E.spacing 6
                     ]
                     [ E.image
                         [ E.width (E.px 18)

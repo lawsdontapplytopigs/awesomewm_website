@@ -5,3 +5,6 @@
 [ ] Don't forget to add the default "EFont.sansSerif" on font families used on the site
 [ ] Make sure to add a character limit to the title, description
 [ ] Add profile pictures
+[ ] Figure out what to do about posts like "showcase" vs "library" vs "plugin" etc...
+[ ] Fix the AWM logo and its placement
+[ ] Write the backend...
