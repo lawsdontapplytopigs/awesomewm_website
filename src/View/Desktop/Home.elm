@@ -69,18 +69,6 @@ block0 =
                         ]
                 ]
 
--- block1 = 
-
--- block1 =
---     E.text  "Awesomewm is a highly configurable window manager framework for X. 
---                 It is very fast, extensible and licensed under the
---                 "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" GNU GPLv2 license.
---                 It is primarily targeted at power users, developers and any people dealing with
---                 every day computing tasks and who want to have fine-grained control on their
---                 graphical environment.
---         "
-
-
 block1 =
     E.column
         [ E.width E.fill
@@ -88,9 +76,6 @@ block1 =
         , EBackground.gradient
             { angle = 3.14
             , steps = 
-                -- [ E.rgb255 20 30 70
-                -- , E.rgb255 20 20 70
-                -- ]
                 [ (E.rgb255 0 0 0)
                 , (E.rgb255 0 0 0)
                 , (E.rgb255 20 20 20)
@@ -138,15 +123,7 @@ block1 =
                             graphical environment."""
                 ]
             ]
-        -- , E.image [] {src="", description = ""}
         ]
-        -- [ E.text "Awesomewm is a highly configurable window manager framework for X."
-        -- , E.text "It is very fast, extensible and licensed under the"
-        -- , E.text "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\" GNU GPLv2 license."
-        -- , E.text "It is primarily targeted at power users, developers and any people dealing with"
-        -- , E.text "every day computing tasks and who want to have fine-grained control on their"
-        -- , E.text "graphical environment."
-        -- ]
 
 block2 =
     E.column
@@ -176,7 +153,6 @@ block2 =
                     , EFont.extraBold
                     , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
                     , EFont.family
-                        -- [ EFont.typeface "Montserrat Medium"
                         [ EFont.typeface "Roboto Condensed"
                         ]
                     ]
@@ -225,45 +201,15 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
         , E.height (E.px 372)
         , EBackground.color (E.rgb255 246 246 246)
         ]
-        -- [ E.html
-        --     <| Html.div
-        --         [ Html.Attributes.style "width" ((String.fromInt width) ++ "px")
-        --         , Html.Attributes.style "overflow" "hidden"
-        --         , Html.Attributes.style "margin" "0"
-        --         ]
-        --         [ Html.img
-        --             [ Html.Attributes.style "display" "block"
-        --             , Html.Attributes.style "width" "100%"
-        --             , Html.Attributes.src img
-        --             ]
-        --             []
-        --         ]
         [ E.html
             <| Html.div
                 [ Html.Attributes.style "width" ((String.fromInt width) ++ "px")
                 , Html.Attributes.style "height" ((String.fromInt imageHeight) ++ "px")
                 , Html.Attributes.style "background-image" ("url(" ++ postPic ++ ")")
                 , Html.Attributes.style "background-size" "cover"
-                -- , Html.Attributes.style "background-position" "center"
                 ]
                 [
                 ]
-                -- [ Html.img
-                --     [ Html.Attributes.style "display" "block"
-                --     , Html.Attributes.style "width" "100%"
-                --     , Html.Attributes.src img
-                --     ]
-                --     []
-                -- ]
-        -- [ E.image
-        --     [ E.
-        --     , E.width E.fill
-        --     , E.height E.fill
-        --     , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
-        --     , E.htmlAttribute <| Html.Attributes.style "max-height" ((String.fromInt imageHeight) ++ "px")
-        --     ]
-        --     { src = postPic, description = "LLALALALA" }
-            
         , E.column
             [ E.width E.fill
             , E.height E.fill
@@ -300,16 +246,13 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
             , E.row -- Likes and Comments row
                 [ E.width E.fill
                 , E.paddingEach { top = 0, right = 14, bottom = 14 , left = 14 }
-                -- , E.alignBottom
                 , E.spacing 12
                 , EFont.size 14
                 , EFont.family
-                    -- [ EFont.typeface "Montserrat Medium"
                     [ EFont.typeface "Roboto"
                     ]
                 ]
                 [ E.text ((String.fromInt likes) ++ " Likes")
-                -- , E.text "·"
                 , E.text "16 Comments"
                 , E.el
                     [ E.alignRight
@@ -320,21 +263,17 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                 [ E.paddingEach { top = 0, right = 0, bottom = 14 , left = 14 }
                 , EFont.color (E.rgb255 10 10 10)
                 , EFont.size 19
-                -- , EFont.letterSpacing 0.1
                 , EFont.extraBold
                 , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
                 , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                 , EFont.family
-                    -- [ EFont.typeface "Montserrat Medium"
                     [ EFont.typeface "Roboto Condensed"
                     ]
                 ]
                 <| E.text title
             , E.row -- author info
-                -- [ E.paddingXY 14 0
                 [ E.paddingEach { top = 0, right = 0, bottom = 8 , left = 14}
                 , E.width E.fill
-                -- , E.alignBottom
                 ]
                 [ E.row
                     [ E.alignLeft
@@ -343,58 +282,22 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     [ E.image
                         [ E.width (E.px 18)
                         , E.height (E.px 18)
-                        -- , EBorder.rounded 8
                         , E.htmlAttribute <| Html.Attributes.style "border-radius" "50%"
                         , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
                         ]
                         { src = profilePic, description = "Profile Image" }
-                    -- , E.el
-                    --     [ EFont.color (E.rgb255 60 60 60)
-                    --     , EFont.size 14
-                    --     , EFont.regular
-                    --     , EFont.family
-                    --         -- [ EFont.typeface "Montserrat Medium"
-                    --         [ EFont.typeface "Roboto"
-                    --         ]
-                    --     ]
-                    --     <| E.text "By "
                     , E.el
                         [ EFont.size 14
                         , EFont.medium
                         , EFont.family
-                            -- [ EFont.typeface "Montserrat Medium"
                             [ EFont.typeface "Roboto"
                             ]
                         ]
                         <| E.text author
                     ]
                 ]
-            -- , E.column
-            --     [ 
-            --     ]
-                -- [ E.
-                -- ]
-                -- [ E.html    
-                --     <| Markdown.toHtml 
-                --         [ Html.Attributes.style "overflow" "hidden"
-                --         , Html.Attributes.style "max-width" "200"
-                --         ]
-                --         (truncateText 300 desc)
-                -- ]
             ]
         ]
-
-            -- , E.el
-            --     [ E.paddingXY 18 4
-            --     , EFont.color (E.rgb255 60 60 60)
-            --     , EFont.size 14
-            --     , EFont.regular
-            --     , EFont.family
-            --         -- [ EFont.typeface "Montserrat Medium"
-            --         [ EFont.typeface "Roboto"
-            --         ]
-            --     ]
-            --     <| E.text "See entire post..."
 
 -------------------
 -- Helpers
