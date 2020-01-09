@@ -3,17 +3,18 @@ module Logo exposing (logo)
 import Svg
 import Svg.Attributes
 
-logo scaling =
+logo width height =
     Svg.node "svg"
-        [ Svg.Attributes.width "200px" 
-        , Svg.Attributes.height "100px" 
+        [ Svg.Attributes.width (width ++ "px")
+        , Svg.Attributes.height (height ++ "px")
         , Svg.Attributes.version "1.1" 
         , Svg.Attributes.viewBox "0 0 200 100" 
         -- Svg.Attributes.xmlns "http://www.w3.org/2000/svg" 
         -- Svg.Attributes.xmlns:cc "http://creativecommons.org/ns#" 
         -- Svg.Attributes.xmlns:dc "http://purl.org/dc/elements/1.1/" 
         -- Svg.Attributes.xmlns:rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        , Svg.Attributes.transform ("scale("++ scaling ++ ")")
+        -- , Svg.Attributes.transform ("scale("++ scaling ++ ")")
+        , Svg.Attributes.transform ("scale(1)")
         ]
         [ Svg.g 
             [ Svg.Attributes.transform "translate(0,-197)"

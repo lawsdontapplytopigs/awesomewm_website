@@ -53,24 +53,42 @@ block0 =
                 , E.centerX
                 ]
                 [ E.el 
-                    [ E.alignLeft ]
-                    ( E.html ( Logo.logo "0.5" ))
-                , E.el
-                    [ E.alignRight 
+                    [ E.alignLeft 
+                    , E.width (E.px 100)
+                    , E.height (E.px 60)
                     ]
-                    <| E.row
-                        [ E.spacing 18
+                    ( E.html ( Logo.logo "100" "80" ))
+                , E.row
+                    [ E.spacing 18
+                    , E.paddingEach { top = 0, right = 0, bottom = 0, left = 24 }
+                    ]
+                    -- [ View.Desktop.Lib.makeLink "/" "HOME"
+                    -- , View.Desktop.Lib.makeLink "/expo" "EXPO"
+                    -- , View.Desktop.Lib.makeLink "/download" "DOWNLOAD"
+                    -- , View.Desktop.Lib.makeLink "/comunnity" "COMUNNITY"
+                    -- ]
+                    [ View.Desktop.Lib.makeLink "/" "Home"
+                    , View.Desktop.Lib.makeLink "/expo" "Expo"
+                    , View.Desktop.Lib.makeLink "/download" "Download"
+                    , View.Desktop.Lib.makeLink "/comunnity" "Comunnity"
+                    ]
+                , E.row
+                    [ E.alignRight
+                    , E.spacing 20
+                    ]
+                    [ E.el
+                        [ E.width (E.px 26)
+                        , E.height (E.px 26)
                         ]
-                        -- [ View.Desktop.Lib.makeLink "/" "HOME"
-                        -- , View.Desktop.Lib.makeLink "/expo" "EXPO"
-                        -- , View.Desktop.Lib.makeLink "/download" "DOWNLOAD"
-                        -- , View.Desktop.Lib.makeLink "/comunnity" "COMUNNITY"
-                        -- ]
-                        [ View.Desktop.Lib.makeLink "/" "Home"
-                        , View.Desktop.Lib.makeLink "/expo" "Expo"
-                        , View.Desktop.Lib.makeLink "/download" "Download"
-                        , View.Desktop.Lib.makeLink "/comunnity" "Comunnity"
-                        ]
+                        <| E.html Icons.bell
+                    , E.image 
+                        [ E.width (E.px 42)
+                        , E.height (E.px 42)
+                        , E.htmlAttribute <| Html.Attributes.style "border-radius" "50%"
+                        , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
+                        ] 
+                        { src = "../../../resources/default_profile_pic.jpg", description="Your profile picture"}
+                    ]
                 ]
 
 block1 =
