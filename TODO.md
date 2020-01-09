@@ -10,3 +10,4 @@
 [ ] Write the backend...
 [ ] Center the Home "Expo" posts (I thought they were centered but they're actually not...)
 [ ] I'll have to implement both the logged-in version of the navbar, AND the not-logged-in one
+[ ] Get some vector art of the cairo logo to maybe use in one of the blocks.

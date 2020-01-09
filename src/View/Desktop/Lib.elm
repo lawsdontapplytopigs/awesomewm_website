@@ -33,6 +33,7 @@ button1 msg text =
         , E.mouseOver 
             [ EBackground.color (E.rgb255 20 20 20)
             ]
+        , E.pointer
         ]
         <| E.el
             [ E.centerX
