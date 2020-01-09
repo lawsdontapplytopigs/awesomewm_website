@@ -1,15 +1,19 @@
 module View.Desktop.Home exposing (view)
 
-import Html
-import Html.Attributes
+import Browser
 import Element as E
 import Element.Background as EBackground
 import Element.Border as EBorder
 import Element.Font as EFont
+import Element.Events as EEvents
+import Html
+import Html.Attributes
 import Icons
 import Logo
 import Markdown
+import Msg
 import Palette
+import Url
 import View.Desktop.Lib
 
 view title model =
@@ -188,7 +192,23 @@ block2 =
                 , datePosted = "06.01.2020"
                 }
             ]
+        , E.el
+            [ E.width E.fill
+            , E.height (E.px 50)
+            ]
+            <| E.el
+                [ E.width (E.px 100)
+                , E.height (E.px 50)
+                , E.centerX
+                -- , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
+                -- , EBackground.color (E.rgb255 20 20 20)
+                ]
+                <| View.Desktop.Lib.button1 linkLINK "HMMMMM"
+
         ]
+
+linkLINK =
+    (Msg.LinkClicked (Browser.Internal (Url.Url Url.Http "127.0.0.1" Nothing ":8000" (Just "/expo") Nothing))) -- somehow this worked
 
 
 makePost { author, title, likes, postPic, profilePic, datePosted } =

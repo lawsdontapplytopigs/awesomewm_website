@@ -2,19 +2,20 @@ module Main exposing (..)
 
 import Browser
 import Browser.Navigation as Nav
-
-import View.Desktop.Home
+import Msg
 
 import Url
+import View.Desktop.Home
 
-main : Program () Model Msg
+
+main : Program () Model Msg.Msg
 main = Browser.application
     { init = init
     , view = View.Desktop.Home.view "AwesomeWM"
     , update = update
     , subscriptions = subscriptions
-    , onUrlRequest = LinkClicked
-    , onUrlChange = UrlChanged
+    , onUrlRequest = Msg.LinkClicked
+    , onUrlChange = Msg.UrlChanged
     }
 
 type alias Model =
@@ -22,7 +23,7 @@ type alias Model =
     , url : Url.Url
     }
 
-init : () -> Url.Url -> Nav.Key -> (Model, Cmd Msg)
+init : () -> Url.Url -> Nav.Key -> (Model, Cmd Msg.Msg)
 init flags url key =
     (
         { key = key
@@ -31,30 +32,22 @@ init flags url key =
         , Cmd.none
     )
 
-type UrlRequest
-    = Internal Url.Url
-    | External String
 
-type Msg 
-    = LinkClicked Browser.UrlRequest
-    | UrlChanged Url.Url
-    -- | CardClicked
-
-subscriptions : Model -> Sub Msg
+subscriptions : Model -> Sub Msg.Msg
 subscriptions model =
     Sub.none
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg.Msg -> Model -> ( Model, Cmd Msg.Msg )
 update msg model =
     case msg of
-        LinkClicked urlRequest ->
+        Msg.LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( model, Nav.pushUrl model.key (Url.toString url) )
+                    ( model, Nav.pushUrl model.key (Debug.log "" (Url.toString url) ))
                 Browser.External href ->
                     ( model, Nav.load href )
-        UrlChanged url ->
+        Msg.UrlChanged url ->
             ( { model | url = url }
-            , Cmd.none
+            , Nav.load (Url.toString url)
             )
 
