@@ -1,6 +1,7 @@
 module View.Desktop.Lib exposing
     ( makeLink 
     , button1
+    , navbar
     )
 
 import Element as E
@@ -9,6 +10,8 @@ import Element.Events as EEvents
 import Element.Font as EFont
 import Html
 import Html.Attributes
+import Icons
+import Logo
 import Palette
 
 makeLink url label =
@@ -47,3 +50,50 @@ button1 msg text =
                 [ EFont.typeface "Roboto Condensed"
                 ]
             ] <| E.text text
+
+-- navbar
+navbar = 
+    E.inFront <|
+        E.el
+            [ E.width E.fill
+            , E.height (E.px 64)
+            , EBackground.color (E.rgb255 255 255 255)
+            ]
+            <| E.row
+                [ E.width (E.fill |> E.maximum 1440)
+                , E.height (E.px 70)
+                , E.centerX
+                ]
+                [ E.el 
+                    [ E.alignLeft 
+                    , E.width (E.px 90)
+                    , E.height (E.px 60)
+                    ]
+                    ( E.html ( Logo.logo "90" "60" ))
+                , E.row
+                    [ E.spacing 18
+                    , E.paddingEach { top = 0, right = 0, bottom = 0, left = 24 }
+                    ]
+                    [ makeLink "/" "Home"
+                    , makeLink "/expo" "Expo"
+                    , makeLink "/download" "Download"
+                    , makeLink "/comunnity" "Comunnity"
+                    ]
+                , E.row
+                    [ E.alignRight
+                    , E.spacing 22
+                    ]
+                    [ E.el
+                        [ E.width (E.px 22)
+                        , E.height (E.px 22)
+                        ]
+                        <| E.html Icons.bell
+                    , E.image 
+                        [ E.width (E.px 36)
+                        , E.height (E.px 36)
+                        , E.htmlAttribute <| Html.Attributes.style "border-radius" "50%"
+                        , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
+                        ] 
+                        { src = "../../../resources/default_profile_pic.jpg", description="Your profile picture"}
+                    ]
+                ]

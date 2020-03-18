@@ -5,13 +5,15 @@ import Browser.Navigation as Nav
 import Msg
 
 import Url
+import Url.Parser
 import View.Desktop.Home
+import View.Desktop.Expo
 
 
 main : Program () Model Msg.Msg
 main = Browser.application
     { init = init
-    , view = View.Desktop.Home.view "AwesomeWM"
+    , view = view
     , update = update
     , subscriptions = subscriptions
     , onUrlRequest = Msg.LinkClicked
@@ -48,6 +50,27 @@ update msg model =
                     ( model, Nav.load href )
         Msg.UrlChanged url ->
             ( { model | url = url }
-            , Nav.load (Url.toString url)
+            , Cmd.none
             )
 
+view model =
+    case toRoute model.url of
+        Home ->
+            View.Desktop.Home.view "AwesomeWM" model
+        Expo ->
+            View.Desktop.Expo.view "Exposition" model
+
+
+type Route
+    = Home
+    | Expo
+
+routeParser : Url.Parser.Parser (Route -> a) a
+routeParser = 
+    Url.Parser.oneOf
+        [ Url.Parser.map Home (Url.Parser.s "home")
+        , Url.Parser.map Expo (Url.Parser.s "expo")
+        ]
+
+toRoute url =
+    Maybe.withDefault Home (Url.Parser.parse routeParser url)

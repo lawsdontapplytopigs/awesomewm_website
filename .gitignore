@@ -5,3 +5,4 @@ dist/
 .cache/
 index.html
 package-lock.json
+backend/_priv.json

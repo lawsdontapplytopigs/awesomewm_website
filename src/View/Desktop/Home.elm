@@ -18,13 +18,13 @@ import View.Desktop.Lib
 
 view title model =
     let 
-        backgroundColor = E.rgb255 247 247 245
+        backgroundColor = E.rgb255 255 255 255
     in
         { title = title
         , body =
             [ (E.layout
                 [ EBackground.color backgroundColor
-                , block0
+                , View.Desktop.Lib.navbar
                 ]
                 (mainDocumentColumn model))
             ]
@@ -34,64 +34,18 @@ mainDocumentColumn model =
     E.column
         [ E.width E.fill
         ]
-        [ block1
+        [ block0
+        , block1
         , block2
         , block3
         , block4
         , block5
         , block6
-        , block7
         -- , spaceBlock 400
         ]
 
--- navbar
-block0 = 
-    E.inFront <|
-        E.el
-            [ E.width E.fill
-            , E.height (E.px 64)
-            , EBackground.color (E.rgb255 255 255 255)
-            ]
-            <| E.row
-                [ E.width (E.fill |> E.maximum 1440)
-                , E.height (E.px 70)
-                , E.centerX
-                ]
-                [ E.el 
-                    [ E.alignLeft 
-                    , E.width (E.px 90)
-                    , E.height (E.px 60)
-                    ]
-                    ( E.html ( Logo.logo "90" "60" ))
-                , E.row
-                    [ E.spacing 18
-                    , E.paddingEach { top = 0, right = 0, bottom = 0, left = 24 }
-                    ]
-                    [ View.Desktop.Lib.makeLink "/" "Home"
-                    , View.Desktop.Lib.makeLink "/expo" "Expo"
-                    , View.Desktop.Lib.makeLink "/download" "Download"
-                    , View.Desktop.Lib.makeLink "/comunnity" "Comunnity"
-                    ]
-                , E.row
-                    [ E.alignRight
-                    , E.spacing 22
-                    ]
-                    [ E.el
-                        [ E.width (E.px 22)
-                        , E.height (E.px 22)
-                        ]
-                        <| E.html Icons.bell
-                    , E.image 
-                        [ E.width (E.px 36)
-                        , E.height (E.px 36)
-                        , E.htmlAttribute <| Html.Attributes.style "border-radius" "50%"
-                        , E.htmlAttribute <| Html.Attributes.style "overflow" "hidden"
-                        ] 
-                        { src = "../../../resources/default_profile_pic.jpg", description="Your profile picture"}
-                    ]
-                ]
 
-block1 =
+block0 =
     E.column
         [ E.width E.fill
         , E.height (E.px 360)
@@ -150,7 +104,7 @@ block1 =
         ]
 
 
-block2 =
+block1 =
     E.column
         -- [ EBackground.color <| E.rgb255 
         [ E.height (E.px 670)
@@ -231,7 +185,7 @@ block2 =
                 <| View.Desktop.Lib.button1 linkLINK "See More"
         ]
 
-block3 =
+block2 =
     E.el -- background stuff
         [ E.height (E.px 400)
         , E.width E.fill
@@ -289,7 +243,7 @@ block3 =
                 ]
             ]
 
-block4 =
+block3 =
     E.el -- background stuff
         [ E.height (E.px 400)
         , E.width E.fill
@@ -356,7 +310,7 @@ block4 =
             ]
 
 
-block5 =
+block4 =
     E.el -- background stuff
         [ E.height (E.px 400)
         , E.width E.fill
@@ -410,7 +364,7 @@ block5 =
                 ]
             ]
 
-block6 =
+block5 =
     E.el -- background stuff
         [ E.height (E.px 400)
         , E.width E.fill
@@ -474,7 +428,7 @@ block6 =
                 ]
             ]
 
-block7 =
+block6 =
     E.el
         [ E.width E.fill
         , E.height (E.px 80)
