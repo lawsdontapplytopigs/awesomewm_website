@@ -12,3 +12,4 @@
 [ ] I'll have to implement both the logged-in version of the navbar, AND the not-logged-in one
 [ ] Get some vector art of the cairo logo to maybe use in one of the blocks.
 [ ] Fix the button I made. I don't think it's working all too well
+[ ] REGISTER NEW APP WITH REDDIT AND GET NEW SECRETS. (i accidentally commited them to the repo)
