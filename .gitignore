@@ -6,7 +6,3 @@ dist/
 index.html
 package-lock.json
 backend/_priv.json
-app.js
-Homepage_text.md
-elm_make.sh
-index_backup.html
