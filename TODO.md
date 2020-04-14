@@ -5,10 +5,13 @@
 [x] Fix the button I made. I don't think it's working all too well
 [x] Take out the profile pic and the bell from the navbar, since I won't be making the site work that way
 [x] Take out the like, comment, and "other" buttons from the small posts on the home page
-[ ] change all hardcoded fonts in the code to "Palette.font1" or something of that sort
-[ ] The "Roboto Mono" font setting in the front end is "roboto mono nerd font" change it to the regular one in prod
-[ ] Maybe redesign how the gpg signature is displayed on the "download" page
+[x] change all hardcoded fonts in the code to "Palette.font1" or something of that sort
 [ ] make the footer
+        Additional things I could put in the footer:
+            - Authors
+            - commit graph
+            - Donations link
+
 [x] probably take out the weird left-side spacing happening in the `/download` page
 [ ] Take out the colons in the titles from the "Download" page
 [ ] Make scrolling and making http requests automatically work on the `/expo` page.
@@ -29,6 +32,9 @@
         // ACTUALLY!!!!! I don't even think I need to use the reddit api in any
         // way. I can just make the clients make all the requests necessary from
         // reddit and that's a gg right there
+[ ] Take a look at what the elm website has on their footer
+[ ] MAKE SURE to actually test out the website regarding fetching posts from
+        reddit
 
 
 ###Maybe I'll do these, but I'm not sure
@@ -38,3 +44,8 @@
 [ ] Write a "beginner's guide" and make sure to link it in the main 
     page's `Thoroughly docummented API` section.
 [ ] Make the "Likes" and "Comments" elements a bit more distinctive
+[ ] Maybe redesign how the gpg signature is displayed on the "download" page
+
+
+##In production
+[ ] The "Roboto Mono" font setting in the front end is "roboto mono nerd font" change it to the regular one in prod

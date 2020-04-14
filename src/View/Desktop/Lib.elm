@@ -3,10 +3,12 @@ module View.Desktop.Lib exposing
     , button1
     , myNewTabLink
     , navbar
+    , footer
     )
 
 import Element as E
 import Element.Background as EBackground
+import Element.Border as EBorder
 import Element.Events as EEvents
 import Element.Input as EInput
 import Element.Font as EFont
@@ -100,3 +102,36 @@ navbar =
                     , makeLink "/docs" "Docs"
                     ]
                 ]
+
+footer =
+    E.el
+        [ E.width E.fill
+        , E.height (E.px 64)
+        -- , EBorder.widthEach { top = 1, right = 0, bottom = 0, left = 0 }
+        , EBackground.color (E.rgb255 0 0 0)
+        , EFont.color <| E.rgb255 255 255 255
+        , EFont.light
+        , EFont.size 14
+        , EFont.family
+            [ EFont.typeface Palette.font1
+            ]
+        ]
+        <| E.row
+            [ E.width <| E.maximum 1080 E.fill
+            , E.height E.fill
+            , E.centerX
+            , E.centerY
+            ]
+            [ E.el 
+                [ E.height <| E.px 16
+                , E.width <| E.px 16
+                ] <|E.html <| Icons.copyright "#ffffff"
+            , E.row
+                [ E.paddingEach { top = 0, right = 0, bottom = 0, left = 7}
+                ] 
+                [ E.text "Copyright 2007 - 2020, The Awesome Project"
+                ]
+            , E.el
+                [ E.alignRight
+                ] <| E.text "Last edited on Tuesday, 14.04.2020"
+            ]

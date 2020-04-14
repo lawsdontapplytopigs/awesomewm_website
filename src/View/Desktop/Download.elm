@@ -21,7 +21,12 @@ view title model =
             [ View.Desktop.Lib.navbar
             , E.width E.fill
             ]
-            <| mainDocumentColumn model
+            <| E.column
+                    [ E.width E.fill
+                    ]
+                    [ mainDocumentColumn model
+                    , View.Desktop.Lib.footer
+                    ]
         ]
     }
 
@@ -56,7 +61,7 @@ mainDocumentColumn model =
             , EFont.bold
             , EFont.size 80
             ]
-            <| E.text "Download:"
+            <| E.text "Download"
         , E.el
             [ E.paddingEach { top = 0, right = 0, bottom = unit1, left = 0}
             , EFont.medium
@@ -67,7 +72,7 @@ mainDocumentColumn model =
                 ]
             , EFont.size 22
             ]
-            <| E.text "Packages:"
+            <| E.text "Packages"
         , E.column
             [ E.paddingEach { top = 0, right = 0, bottom = 0, left = 0 }
             , E.width E.fill
@@ -78,7 +83,7 @@ mainDocumentColumn model =
                 [ E.paddingEach { top = 0, right = 0, bottom = unit1, left = 0 }
                 , E.spacing 8
                 ]
-                [ E.text "Arch Linux:" -- arch linux section
+                [ E.text "Arch Linux" -- arch linux section
                 , E.column
                     [ E.paddingEach { top = 0, right = 0, bottom = 0, left = unit1 }
                     , E.spacing 6
@@ -139,7 +144,7 @@ mainDocumentColumn model =
                     , EFont.sansSerif
                     ]
                 , EFont.size 22
-                ] <| E.text "Distributions using AwesomeWM as the default window manager:"
+                ] <| E.text "Distributions using AwesomeWM as the default window manager"
             , E.column
                 [ E.paddingEach { top = 0, right = 0, bottom = 0, left = 0 }
                 , E.spacing 6
@@ -158,7 +163,7 @@ mainDocumentColumn model =
                     , EFont.sansSerif
                     ]
                 , EFont.size 22
-                ] <| E.text "Building from source:"
+                ] <| E.text "Building from source"
             , E.column
                 [ E.paddingEach { top = 0, right = 0, bottom = unit2, left = 0 }
                 ]
@@ -224,7 +229,7 @@ mainDocumentColumn model =
                             ]
                         , EFont.size 18
                         ]
-                        <| E.text "Stable:"
+                        <| E.text "Stable"
                     , E.paragraph
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = 0}
                         ]
@@ -297,7 +302,7 @@ mainDocumentColumn model =
                             ]
                         , EFont.size 18
                         ]
-                        <| E.text "Old Stable:"
+                        <| E.text "Old Stable"
                     , E.paragraph
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = 0}
                         , EFont.color <| E.rgb255 250 60 80
@@ -373,11 +378,11 @@ mainDocumentColumn model =
                             ]
                         , EFont.size 18
                         ]
-                        <| E.text "Development:"
+                        <| E.text "Development"
                     , E.paragraph
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = 0}
                         ]
-                        [ E.text "The git repository can be cloned from github:"
+                        [ E.text "The git repository can be cloned from github"
                         ]
                     , E.paragraph
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = unit1}
@@ -413,7 +418,7 @@ mainDocumentColumn model =
                         ]
                     , EFont.size 22
                     ]
-                    <| E.text "History:" 
+                    <| E.text "History" 
                 , E.column
                     [
                     ]
