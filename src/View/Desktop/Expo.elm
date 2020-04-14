@@ -15,6 +15,7 @@ import Element.Input as EInput
 import Html
 import Html.Attributes
 import Msg
+import Palette
 import SampleData
 import View.Desktop.Lib
 import View.Desktop.Lib.DropDown
@@ -77,7 +78,7 @@ sortingPreferencesSection model =
                     , EFont.size 14
                     , EFont.color <| E.rgb255 255 255 255
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -105,7 +106,7 @@ sortingPreferencesSection model =
                     , EFont.size 14
                     , EFont.color <| E.rgb255 255 255 255
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -298,7 +299,7 @@ makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
                 , E.spacing 12
                 , EFont.size 14
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -321,7 +322,7 @@ makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
                     , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
                     , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                     , EFont.family
-                        [ EFont.typeface "Roboto Condensed"
+                        [ EFont.typeface Palette.font2
                         , EFont.sansSerif
                         ]
                     ]
@@ -337,7 +338,7 @@ makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
                         [ EFont.size 14
                         , EFont.medium
                         , EFont.family
-                            [ EFont.typeface "Roboto"
+                            [ EFont.typeface Palette.font1
                             , EFont.sansSerif
                             ]
                         ]

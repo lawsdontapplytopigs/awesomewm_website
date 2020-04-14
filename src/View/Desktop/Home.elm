@@ -80,7 +80,7 @@ block0 =
                 , EFont.size 28
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -91,7 +91,7 @@ block0 =
                 , EFont.size 14
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -129,7 +129,7 @@ block1 =
                 , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
                 , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                 , EFont.family
-                    [ EFont.typeface "Roboto Condensed"
+                    [ EFont.typeface Palette.font2
                     , EFont.sansSerif
                     ]
                 ]
@@ -199,7 +199,7 @@ block2 =
                     , EFont.color (E.rgb255 255 255 255)
                     , EFont.bold
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -210,7 +210,7 @@ block2 =
                 , EFont.size 14
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -266,7 +266,7 @@ block3 =
                     , EFont.color (E.rgb255 0 0 0)
                     , EFont.bold
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -277,7 +277,7 @@ block3 =
                 , EFont.size 14
                 , EFont.color (E.rgb255 0 0 0)
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -328,7 +328,7 @@ block4 =
                     , EFont.color (E.rgb255 255 255 255)
                     , EFont.bold
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -339,7 +339,7 @@ block4 =
                 , EFont.size 14
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -391,7 +391,7 @@ block5 =
                     , EFont.color (E.rgb255 0 0 0)
                     , EFont.bold
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -402,7 +402,7 @@ block5 =
                 , EFont.size 14
                 , EFont.color (E.rgb255 0 0 0)
                 , EFont.family
-                    [ EFont.typeface "Roboto"
+                    [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
                 ]
@@ -489,7 +489,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     , E.spacing 12
                     , EFont.size 14
                     , EFont.family
-                        [ EFont.typeface "Roboto"
+                        [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]
                     ]
@@ -508,7 +508,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
                     , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                     , EFont.family
-                        [ EFont.typeface "Roboto Condensed"
+                        [ EFont.typeface Palette.font2
                         , EFont.sansSerif
                         ]
                     ]
@@ -532,7 +532,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                             [ EFont.size 14
                             , EFont.medium
                             , EFont.family
-                                [ EFont.typeface "Roboto"
+                                [ EFont.typeface Palette.font1
                                 , EFont.sansSerif
                                 ]
                             ]

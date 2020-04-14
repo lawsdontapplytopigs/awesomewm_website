@@ -5,6 +5,7 @@ import Element.Font as EFont
 
 font0 = "Montserrat Medium"
 font1 = "Roboto"
+font2 = "Roboto Condensed"
 
 -- potentialSize = 900
 -- potentialSize = 1440

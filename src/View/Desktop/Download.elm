@@ -61,7 +61,7 @@ mainDocumentColumn model =
             [ E.paddingEach { top = 0, right = 0, bottom = unit1, left = 0}
             , EFont.medium
             , EFont.family
-                -- [ EFont.typeface "Roboto Condensed"
+                -- [ EFont.typeface Palette.font2
                 [ EFont.typeface Palette.font1
                 , EFont.sansSerif
                 ]
@@ -134,7 +134,7 @@ mainDocumentColumn model =
                 [ E.paddingEach { top = unit2, right = 0, bottom = unit1, left = 0}
                 , EFont.medium
                 , EFont.family
-                    -- [ EFont.typeface "Roboto Condensed"
+                    -- [ EFont.typeface Palette.font2
                     [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
@@ -153,7 +153,7 @@ mainDocumentColumn model =
                 [ E.paddingEach { top = unit2, right = 0, bottom = unit1, left = 0}
                 , EFont.medium
                 , EFont.family
-                    -- [ EFont.typeface "Roboto Condensed"
+                    -- [ EFont.typeface Palette.font2
                     [ EFont.typeface Palette.font1
                     , EFont.sansSerif
                     ]
@@ -218,7 +218,7 @@ mainDocumentColumn model =
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = 0}
                         , EFont.medium
                         , EFont.family
-                            -- [ EFont.typeface "Roboto Condensed"
+                            -- [ EFont.typeface Palette.font2
                             [ EFont.typeface Palette.font1
                             , EFont.sansSerif
                             ]
@@ -291,7 +291,7 @@ mainDocumentColumn model =
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = 0}
                         , EFont.medium
                         , EFont.family
-                            -- [ EFont.typeface "Roboto Condensed"
+                            -- [ EFont.typeface Palette.font2
                             [ EFont.typeface Palette.font1
                             , EFont.sansSerif
                             ]
@@ -367,7 +367,7 @@ mainDocumentColumn model =
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = 0}
                         , EFont.medium
                         , EFont.family
-                            -- [ EFont.typeface "Roboto Condensed"
+                            -- [ EFont.typeface Palette.font2
                             [ EFont.typeface Palette.font1
                             , EFont.sansSerif
                             ]
@@ -407,7 +407,7 @@ mainDocumentColumn model =
                     [ E.paddingEach { top = 0, right = 0, bottom = unit1, left = 0}
                     , EFont.medium
                     , EFont.family
-                        -- [ EFont.typeface "Roboto Condensed"
+                        -- [ EFont.typeface Palette.font2
                         [ EFont.typeface Palette.font1
                         , EFont.sansSerif
                         ]

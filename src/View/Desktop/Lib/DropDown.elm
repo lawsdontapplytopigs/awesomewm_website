@@ -15,6 +15,8 @@ import Icons
 
 import Msg
 
+import Palette
+
 type Option value
     = Option value
 
@@ -50,7 +52,7 @@ makeDropDown { selected, selectedToTxt, options, onChange, rolledUpOrDown
             [ EFont.size 14
             , EFont.color <| E.rgb255 0 0 0
             , EFont.family
-                [ EFont.typeface "Roboto"
+                [ EFont.typeface Palette.font1
                 , EFont.sansSerif
                 ]
             ]

@@ -30,31 +30,6 @@ makeLink url label =
         , label = E.text label
         }
 
--- button1 msg text =
---     E.el
---         [ E.width E.fill
---         , E.height E.fill
---         , EEvents.onClick msg
---         , EBackground.color (E.rgb255 30 30 30)
---         , E.mouseOver 
---             [ EBackground.color (E.rgb255 20 20 20)
---             ]
---         , E.pointer
---         ]
---         <| E.el
---             [ E.centerX
---             , E.centerY
---             , EFont.color (E.rgb255 10 10 10)
---             , EFont.size 19
---             , EFont.color (E.rgb255 255 255 255)
---             , EFont.extraBold
---             , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
---             , EFont.family
---                 [ EFont.typeface "Roboto Condensed"
---                 , EFont.sansSerif
---                 ]
---             ] <| E.text text
-
 button1 msg text =
     EInput.button
         [ E.width E.fill
@@ -73,7 +48,7 @@ button1 msg text =
             , EFont.extraBold
             , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
             , EFont.family
-                [ EFont.typeface "Roboto Condensed"
+                [ EFont.typeface Palette.font2
                 , EFont.sansSerif
                 ]
             ]
