@@ -7,9 +7,9 @@
 [x] Center the Home "Expo" posts (I thought they were centered but they're actually not...)
 [x] Fix the button I made. I don't think it's working all too well
 [ ] REGISTER NEW APP WITH REDDIT AND GET NEW SECRETS. (i accidentally commited them to the repo... OOPSIE)
-        // ACTUALLY!!!!! I don't even think I need to use the reddit api in any way
-        // I can just make the clients make all the requests necessary 
-        // and that's a gg right there
+        // ACTUALLY!!!!! I don't even think I need to use the reddit api in any
+        // way. I can just make the clients make all the requests necessary from
+        // reddit and that's a gg right there
 
 [x] Take out the profile pic and the bell from the navbar, since I won't be making the site work that way
 [ ] Make the "Likes" and "Comments" elements a bit more distinctive

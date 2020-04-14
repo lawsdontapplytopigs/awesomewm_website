@@ -483,36 +483,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                 [ E.width E.fill
                 , E.height E.fill
                 ]
-                [ E.row -- the row with the like, comment & other buttons
-                    [ E.width E.fill 
-                    -- , EBackground.color (E.rgb255 230 70 70)
-                    , E.paddingXY 14 0
-                    , E.height (E.px 50)
-                    ]
-                    [ E.row
-                        [ E.alignLeft
-                        , E.spacing 16
-                        ]
-                        [ E.el 
-                            [ E.width (E.px 30)
-                            , E.height (E.px 30)
-                            , E.centerY
-                            ] (E.html (Icons.heart "1"))
-                        , E.el
-                            [ E.width (E.px 30)
-                            , E.height (E.px 30)
-                            , E.centerY
-                            ] (E.html (Icons.comment "1"))
-                        ]
-                    , E.el
-                        [ E.width (E.px 30)
-                        , E.height (E.px 30)
-                        , E.alignRight
-                        , E.centerY
-                        ]
-                        <| E.html (Icons.dots "1")
-                    ]
-                , E.row -- Likes and Comments row
+                [ E.row -- Likes and Comments row
                     [ E.width E.fill
                     , E.paddingEach { top = 0, right = 14, bottom = 14 , left = 14 }
                     , E.spacing 12
