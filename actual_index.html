@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="./app.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="elm-node"></div>
+    <script>
+        let app = Elm.Main.init({ 
+            node: document.getElementById("elm-node"),
+        });
+
+        // even though we have a `document.onload` below, we do this anyway
+        // because for some reason it works except for when the window.scrollY
+        // is 0. so if the page is not scrolled down at all, it doesn't work.
+
+        // P.S: doing it through ports when we initialize the elm app gives
+        // `0` as the result, so that doesn't work either
+        app.ports.initialWindowAndDocumentData.send(
+            JSON.stringify({
+                documentYOffset : window.scrollY,
+                documentHeight : document.body.scrollHeight,
+                viewportHeight : document.body.offsetHeight,
+            })
+        );
+        
+        document.body.onscroll = function ( data ) {
+            app.ports.getWindowAndDocumentData.send(
+                JSON.stringify({
+                    documentYOffset : window.scrollY,
+                    documentHeight : document.body.scrollHeight,
+                    viewportHeight : document.body.offsetHeight,
+                })
+            )
+        };
+
+        document.onload = function () {
+            app.ports.initialWindowAndDocumentData.send(
+                JSON.stringify({
+                    documentYOffset : window.scrollY,
+                    documentHeight : document.body.scrollHeight,
+                    viewportHeight : document.body.offsetHeight,
+                })
+            )
+        };
+        /* app.ports.websocketOut.subscribe(function(msg) { */
+            
+        /* }); */
+            
+
+        /* ws.addEventListener ( "message", function(message)  { */
+        /*     console.log(message); */
+        /*     app.ports.websocketIn.send(JSON.stringify({data:message.data,timeStamp:message.timeStamp})); */
+        /* }); */
+        /* app.ports.websocketOut.subscribe(function(msg) { */ 
+        /*     ws.send(msg); */
+        /* }); */
+    </script>
+</body>
+</html>

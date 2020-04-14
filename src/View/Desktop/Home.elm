@@ -13,6 +13,7 @@ import Logo
 import Markdown
 import Msg
 import Palette
+import SampleData
 import Url
 import View.Desktop.Lib
 
@@ -80,6 +81,7 @@ block0 =
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
                     [ EFont.typeface "Roboto"
+                    , EFont.sansSerif
                     ]
                 ]
                 <| E.text "AwesomeWM: a highly configurable window manager framework for X."
@@ -90,6 +92,7 @@ block0 =
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
                     [ EFont.typeface "Roboto"
+                    , EFont.sansSerif
                     ]
                 ]
                 [ E.text "It is very fast, extensible and licensed under the "
@@ -127,6 +130,7 @@ block1 =
                 , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                 , EFont.family
                     [ EFont.typeface "Roboto Condensed"
+                    , EFont.sansSerif
                     ]
                 ]
                 <| E.text "Expo"
@@ -146,30 +150,11 @@ block1 =
             -- , E.spacing 80
             ]
             [ makePost 
-                { author = "elenapan" 
-                , title = "Mechanical Love"
-                , likes = 231
-                , postPic = "../../../resources/expo_placeholders/7.png"
-                -- , profilePic = "../../../resources/default_profile_pic.jpg"
-                , profilePic = "../../../resources/elenapan_profile.png"
-                , datePosted = "06.01.2020"
-                }
+                SampleData.data1
             , makePost
-                { author = "Elv13" 
-                , title = "Matrix Multiplication"
-                , likes = 113
-                , postPic = "../../../resources/expo_placeholders/3.png"
-                , profilePic = "../../../resources/default_profile_pic.jpg"
-                , datePosted = "06.01.2020"
-                }
+                SampleData.data2
             , makePost
-                { author = "szorfein" 
-                , title = "Anonymous"
-                , likes = 207
-                , postPic = "../../../resources/expo_placeholders/4.jpg"
-                , profilePic = "../../../resources/default_profile_pic.jpg"
-                , datePosted = "06.01.2020"
-                }
+                SampleData.data3
             ]
         , E.el
             [ E.width E.fill
@@ -182,7 +167,7 @@ block1 =
                 -- , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                 -- , EBackground.color (E.rgb255 20 20 20)
                 ]
-                <| View.Desktop.Lib.button1 linkLINK "See More"
+                <| View.Desktop.Lib.button1 (Just linkLINK) "See More"
         ]
 
 block2 =
@@ -215,6 +200,7 @@ block2 =
                     , EFont.bold
                     , EFont.family
                         [ EFont.typeface "Roboto"
+                        , EFont.sansSerif
                         ]
                     ]
                     <| E.text "Why AwesomeWM?"
@@ -225,6 +211,7 @@ block2 =
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
                     [ EFont.typeface "Roboto"
+                    , EFont.sansSerif
                     ]
                 ]
                     [ E.paragraph
@@ -280,6 +267,7 @@ block3 =
                     , EFont.bold
                     , EFont.family
                         [ EFont.typeface "Roboto"
+                        , EFont.sansSerif
                         ]
                     ]
                     <| E.text "Ultimate extensibility"
@@ -290,6 +278,7 @@ block3 =
                 , EFont.color (E.rgb255 0 0 0)
                 , EFont.family
                     [ EFont.typeface "Roboto"
+                    , EFont.sansSerif
                     ]
                 ]
                     [ E.paragraph
@@ -340,6 +329,7 @@ block4 =
                     , EFont.bold
                     , EFont.family
                         [ EFont.typeface "Roboto"
+                        , EFont.sansSerif
                         ]
                     ]
                     <| E.text "Thoroughly documented api"
@@ -350,6 +340,7 @@ block4 =
                 , EFont.color (E.rgb255 255 255 255)
                 , EFont.family
                     [ EFont.typeface "Roboto"
+                    , EFont.sansSerif
                     ]
                 ]
                     [ E.paragraph
@@ -401,6 +392,7 @@ block5 =
                     , EFont.bold
                     , EFont.family
                         [ EFont.typeface "Roboto"
+                        , EFont.sansSerif
                         ]
                     ]
                     <| E.text "Write your own widgets!"
@@ -411,6 +403,7 @@ block5 =
                 , EFont.color (E.rgb255 0 0 0)
                 , EFont.family
                     [ EFont.typeface "Roboto"
+                    , EFont.sansSerif
                     ]
                 ]
                     [ E.paragraph
@@ -448,8 +441,20 @@ block6 =
 
 -- TODO: Figure out what to do exactly about these kinds of links
 linkLINK =
-    (Msg.LinkClicked (Browser.Internal (Url.Url Url.Http "127.0.0.1" Nothing ":8000" (Just "/expo") Nothing))) -- somehow this worked
+    (Msg.LinkClicked (Browser.Internal url))
 
+url = 
+    case (Url.fromString "http://127.0.0.1:7070/expo") of
+        Just val ->
+            val
+        Nothing ->
+            { protocol = Url.Http
+            , host = "127.0.0.1"
+            , port_ = Just 80
+            , path = "/"
+            , query = Nothing
+            , fragment = Nothing
+            }
 
 makePost { author, title, likes, postPic, profilePic, datePosted } =
     let
@@ -462,7 +467,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
         <| E.column
             [ E.width (E.px width)
             , E.height (E.px 372)
-            , EBackground.color (E.rgb255 246 246 246)
+            -- , EBackground.color (E.rgb255 246 246 246)
             , E.centerX
             ]
             [ E.html
@@ -514,6 +519,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     , EFont.size 14
                     , EFont.family
                         [ EFont.typeface "Roboto"
+                        , EFont.sansSerif
                         ]
                     ]
                     [ E.text ((String.fromInt likes) ++ " Likes")
@@ -532,6 +538,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
                     , EFont.family
                         [ EFont.typeface "Roboto Condensed"
+                        , EFont.sansSerif
                         ]
                     ]
                     <| E.text title
@@ -555,6 +562,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                             , EFont.medium
                             , EFont.family
                                 [ EFont.typeface "Roboto"
+                                , EFont.sansSerif
                                 ]
                             ]
                             <| E.text author
