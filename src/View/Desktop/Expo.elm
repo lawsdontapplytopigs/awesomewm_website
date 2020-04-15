@@ -201,7 +201,7 @@ dateToMsg date =
 
 infoSection model = 
     E.column
-        [ E.width (E.px infoSectionRemainingWidth )
+        [ E.width ( E.px infoSectionRemainingWidth )
         , E.height E.fill
         -- , EBackground.color <| E.rgb255 40 80 230
         , E.alignTop
@@ -371,9 +371,9 @@ makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
 
 infoCard1 =
     E.row
-        [ E.width E.fill
+        [ E.width <| Debug.log "" <| E.px infoSectionRemainingWidth
         , E.height (E.px 180)
-        , EBackground.color <| E.rgb255 250 250 250
+        , EBackground.color <| E.rgb255 210 240 255
         , EBorder.width 1
         , EBorder.color <| E.rgb255 140 200 255
         , EBorder.rounded 7

@@ -13,16 +13,17 @@
             - Donations link
 
 [x] probably take out the weird left-side spacing happening in the `/download` page
-[ ] Take out the colons in the titles from the "Download" page
+[x] Take out the colons in the titles from the "Download" page
 [ ] Make scrolling and making http requests automatically work on the `/expo` page.
         valuable info to keep in mind:
             - `window.scrollY` gets you the scroll y position
             - `document.body.scrollHeight` gets you the height of the document
             - `document.body.offsetHeight` gets you the height of the viewport
-[ ] Maybe make the little info card smaller on the `/expo` page
+[x] Maybe make the little info card smaller on the `/expo` page
 [ ] I think I can get to the point where I remove the ports used to make
         http requests at certain scrolling points in the page, and just use
         elm, but I'm not sure
+[ ] Make the sorting buttons work
 
 
 [ ] Write the backend...
