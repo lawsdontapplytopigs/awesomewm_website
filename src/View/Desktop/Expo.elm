@@ -14,6 +14,7 @@ import Element.Font as EFont
 import Element.Input as EInput
 import Html
 import Html.Attributes
+import Icons
 import Msg
 import Palette
 import SampleData
@@ -373,13 +374,63 @@ infoCard1 =
     E.row
         [ E.width <| Debug.log "" <| E.px infoSectionRemainingWidth
         , E.height (E.px 180)
-        , EBackground.color <| E.rgb255 210 240 255
-        , EBorder.width 1
+        , EBackground.gradient
+            { angle = 1.9
+            , steps = 
+                -- [ (E.rgb255 160 200 225)
+                -- , (E.rgb255 170 240 215)
+                -- ]
+                -- [ (E.rgb255 160 190 235)
+                -- , (E.rgb255 150 220 220)
+                -- ]
+                [ (E.rgb255 20 60 95)
+                , (E.rgb255 40 100 120)
+                ]
+            }
+        -- , EBorder.width 1
         , EBorder.color <| E.rgb255 140 200 255
         , EBorder.rounded 7
         -- , E.htmlAttribute <| Html.Attributes.style "position" "fixed"
         ]
-        [ E.text ""
+        [ E.el
+            [ E.paddingEach { top = 0, right = 0, bottom = 0, left = 24 }
+            -- , EBackground.color <| E.rgb255 80 80 80
+            ]
+            <| E.el
+                [ E.width <|E.px 42
+                , E.height <| E.px 42
+                ]
+                <| E.html (Icons.info "1" "#ffffff")
+        , E.column
+            [ E.width E.fill
+            , E.paddingEach { top = 0, right = 24 , bottom = 0, left = 24 }
+            , E.spacing 12
+            ]
+            [ E.paragraph
+                [ EFont.size 14
+                , EFont.medium
+                , EFont.color <| E.rgb255 255 255 255
+                , EFont.family
+                    [ EFont.typeface Palette.font1
+                    , EFont.sansSerif
+                    ]
+                ]
+                [ E.text "Would you like to have your post featured?"
+                ]
+            , E.paragraph
+                -- [ E.paddingEach {
+                [ EFont.size 12
+                , EFont.color <| E.rgb255 255 255 255
+                , EFont.family
+                    [ EFont.typeface Palette.font1
+                    , EFont.sansSerif
+                    ]
+                ]
+                [ E.text """Simply post your work on the 'r/awesomewm' subreddit, 
+                    tag your post with `[Screenshot]` in the title, and it'll be
+                    automatically displayed on our site!"""
+                ]
+            ]
         ]
 
 -- spacing unit:

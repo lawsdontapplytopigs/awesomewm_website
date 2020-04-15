@@ -164,9 +164,10 @@ info scale color = Svg.node "svg"
     , Svg.Attributes.viewBox "0 0 512 512"
     , Svg.Attributes.style "enable-background:new 0 0 512 512;"
     , Svg.Attributes.transform <| "scale(" ++ scale ++ ")"
+    , Svg.Attributes.fill color
     ]
     [ Svg.g
-        [ Svg.Attributes.fill color
+        [
         ]
         [ Svg.path
             [ Svg.Attributes.d """M256,0C114.497,0,0,114.507,0,256c0,141.503,114.507,256,256,256c141.503,0,256-114.507,256-256
@@ -176,7 +177,7 @@ info scale color = Svg.node "svg"
             []
         ]
     , Svg.g
-        [ Svg.Attributes.fill color
+        [
         ]
         [ Svg.path
             [ Svg.Attributes.d """M256,214.33c-11.046,0-20,8.954-20,20v128.793c0,11.046,8.954,20,20,20s20-8.955,20-20.001V234.33
@@ -185,7 +186,7 @@ info scale color = Svg.node "svg"
             []
         ]
     , Svg.g
-        [ Svg.Attributes.fill color
+        [
         ]
         [ Svg.circle
             [ Svg.Attributes.cx "256"
@@ -195,6 +196,7 @@ info scale color = Svg.node "svg"
             []
         ]
     ]
+
 
 github color = Svg.node "svg"
     [ Svg.Attributes.viewBox "0 0 496 512"
