@@ -42,6 +42,7 @@ mainDocumentColumn model =
         , block4
         , block5
         , block6
+        , View.Desktop.Lib.footer
         -- , spaceBlock 400
         ]
 
