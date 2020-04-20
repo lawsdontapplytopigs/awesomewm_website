@@ -23,19 +23,20 @@
 [ ] I think I can get to the point where I remove the ports used to make
         http requests at certain scrolling points in the page, and just use
         elm, but I'm not sure
-[ ] Make the sorting buttons work
 
 
 [ ] Write the backend...
 
 ###Once I'm online
 [ ] REGISTER NEW APP WITH REDDIT AND GET NEW SECRETS. (i accidentally commited them to the repo... OOPSIE)
-        // ACTUALLY!!!!! I don't even think I need to use the reddit api in any
-        // way. I can just make the clients make all the requests necessary from
-        // reddit and that's a gg right there
+        ACTUALLY!!!!! I don't even think I need to use the reddit api in any
+        way. I can just make the clients make all the requests necessary from
+        reddit and that's a gg right there
 [ ] Take a look at what the elm website has on their footer
 [ ] MAKE SURE to actually test out the website regarding fetching posts from
         reddit
+[ ] Make the sorting buttons work - They're done, I just need to make sure
+    They make the http requests when they're clicked
 
 
 ###Maybe I'll do these, but I'm not sure

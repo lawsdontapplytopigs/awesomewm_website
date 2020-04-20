@@ -164,11 +164,6 @@ update msg model =
                 | topicDropDownSelected = View.Desktop.Expo.Hot
                 , topicDropDownUpOrDown = View.Desktop.Lib.DropDown.RolledUp }
             , Cmd.none )
-        Msg.SortByControversial ->
-            ( { model 
-                | topicDropDownSelected = View.Desktop.Expo.Controversial
-                , topicDropDownUpOrDown = View.Desktop.Lib.DropDown.RolledUp }
-            , Cmd.none )
         Msg.SortByNew ->
             ( { model 
                 | topicDropDownSelected = View.Desktop.Expo.New

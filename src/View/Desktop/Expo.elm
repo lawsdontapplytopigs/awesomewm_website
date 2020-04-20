@@ -90,7 +90,6 @@ sortingPreferencesSection model =
                     , options =
                         [ (View.Desktop.Lib.DropDown.Option Top)
                         , (View.Desktop.Lib.DropDown.Option Hot)
-                        , (View.Desktop.Lib.DropDown.Option Controversial)
                         , (View.Desktop.Lib.DropDown.Option New)
                         ]
                     , onChange = topicToMsg
@@ -129,7 +128,6 @@ sortingPreferencesSection model =
                     }
                 ]
     in
-
     E.row
         [ E.height (E.px sortingPreferencesSectionHeight)
         , E.width (E.px postWidth)
@@ -145,8 +143,6 @@ topicToTxt val =
             "Top"
         Hot ->
             "Hot"
-        Controversial ->
-            "Controversial"
         New ->
             "New"
 
@@ -156,15 +152,12 @@ topicToMsg value =
             Msg.SortByTop
         Hot -> 
             Msg.SortByHot
-        Controversial ->
-            Msg.SortByControversial
         New ->
             Msg.SortByNew
 
 type SortingTopic
     = Top
     | Hot
-    | Controversial
     | New
 
 type SortingDate

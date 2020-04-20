@@ -19,7 +19,6 @@ type Msg
     -- expo page sort by topic drop down menu
     | SortByTop
     | SortByHot
-    | SortByControversial
     | SortByNew
     | RollDownSortByTopicDropDown
     | RollUpSortByTopicDropDown
