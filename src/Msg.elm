@@ -4,6 +4,7 @@ module Msg exposing
     )
 
 import Browser
+import Http
 import Url
 
 type UrlRequest
@@ -15,6 +16,8 @@ type Msg
     | UrlChanged Url.Url
     | GotWindowAndDocumentData String
     | InitialWindowAndDocumentData String
+
+    | GotRedditData (Result Http.Error String)
 
     -- expo page sort by topic drop down menu
     | SortByTop

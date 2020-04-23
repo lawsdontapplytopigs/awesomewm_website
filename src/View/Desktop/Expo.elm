@@ -21,6 +21,7 @@ import SampleData
 import View.Desktop.Lib
 import View.Desktop.Lib.DropDown
 
+-- TODO: I should clean this up. It works, but looks bad.
 availableWidth = 1440
 postWidth = 860 -- (max width)
 postHeight = 580
@@ -55,8 +56,7 @@ mainDocumentColumn model =
         ]
         [ E.row
             -- [ EBackground.color <| E.rgb255 60 60 60 -- for debuggning
-            [ E.height (E.px 4200)
-            , E.width (E.maximum availableWidth E.fill)
+            [ E.width (E.maximum availableWidth E.fill)
             , E.centerX
             , EBackground.color <| E.rgba255 230 210 210 0-- for debuggning
             ]
@@ -209,6 +209,7 @@ infoSection model =
 postsSection model = 
     let
         width = postWidth
+        -- _ = Debug.log "POSTS LENGTH " <| List.length model.expoPosts
     in
     E.column
         [ E.width (E.fill |> E.maximum width)
@@ -218,28 +219,8 @@ postsSection model =
         , E.paddingEach { top = spacingUnit, right = 0, bottom = 0, left = 0 }
         , E.htmlAttribute <| Html.Attributes.id "postsNode"
         ]
-        [ sortingPreferencesSection model
-        , makeBigPost
-            SampleData.data1
-            -- { author = "ses"
-            -- , title = "Title"
-            -- , likes = 10
-            -- , postPic = "url"
-            -- , profilePic = "url"
-            -- , datePosted = "10.09.2019"
-            -- }
-        , makeBigPost
-            SampleData.data2
-            -- { author = "ses"
-            -- , title = "Title"
-            -- , likes = 10
-            -- , postPic = "url"
-            -- , profilePic = "url"
-            -- , datePosted = "10.09.2019"
-            -- }
-        , makeBigPost
-            SampleData.data3
-        ]
+        ([ sortingPreferencesSection model
+        ] ++ (List.map makeBigPost model.expoPosts))
 
 -- fromOption : EInput.Option -> Msg.Msg
 -- fromOption ( Option value msg )=
@@ -255,21 +236,15 @@ space width =
         ]
         <| E.text ""
 
-separator = 
-    E.el -- separator
-        [ E.width (E.px 1)
-        , E.height (E.px (500 + 100))
-        , EBackground.color <| E.rgb255 200 200 200
-        , E.alignTop
-        ]
-        <| E.text ""
-
-makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
+makeBigPost { author, title, likes, postPic, datePosted } =
     let
         -- height = 9/16 * width
         width = postWidth
         height = postHeight
         imageHeight = round <| (9/16) * width
+
+        date = String.fromInt datePosted
+        profilePic = "../../../data/default/default_profile_pic.jpg"
     in
         E.column
             [ E.width E.fill
@@ -302,7 +277,7 @@ makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
                 , E.el
                     [ E.alignRight
                     ]
-                    <| E.text datePosted
+                    <| E.text date
                 ]
             , E.row
                 [ E.width E.fill
@@ -348,27 +323,12 @@ makeBigPost { author, title, likes, postPic, profilePic, datePosted } =
                 ]
             ]
 
---infoSection model = 
---    in
---    E.row
---        [ E.width (E.px availableWidth)
---        , E.height (E.px 520 )
---        -------------------------------------------------------------------TODO
---        -- try to use the css `position : fixed` property
---        , EBackground.color <| E.rgba255 200 200 180 0
---        , E.paddingEach 
---            { top = 64 + spacingUnit-- (the height of the navbar)
---            , right = 0, bottom = 0, left = 0 }
---        ]
---        [ infoColumn
---        ]
-
 infoCard1 =
     E.row
-        [ E.width <| Debug.log "" <| E.px infoSectionRemainingWidth
+        [ E.width <| E.px infoSectionRemainingWidth
         , E.height (E.px 180)
         , EBackground.gradient
-            { angle = 1.9
+            { angle = 2.1
             , steps = 
                 -- [ (E.rgb255 160 200 225)
                 -- , (E.rgb255 170 240 215)
@@ -376,8 +336,11 @@ infoCard1 =
                 -- [ (E.rgb255 160 190 235)
                 -- , (E.rgb255 150 220 220)
                 -- ]
-                [ (E.rgb255 20 60 95)
-                , (E.rgb255 40 100 120)
+                -- [ (E.rgb255 20 60 95)
+                -- , (E.rgb255 40 100 120)
+                -- ]
+                [ (E.rgb255 140 190 225)
+                , (E.rgb255 150 230 210)
                 ]
             }
         -- , EBorder.width 1
@@ -426,5 +389,3 @@ infoCard1 =
             ]
         ]
 
--- spacing unit:
-    -- 38

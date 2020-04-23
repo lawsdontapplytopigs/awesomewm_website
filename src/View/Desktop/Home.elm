@@ -36,7 +36,7 @@ mainDocumentColumn model =
         [ E.width E.fill
         ]
         [ block0
-        , block1
+        , block1 model
         , block2
         , block3
         , block4
@@ -108,9 +108,8 @@ block0 =
         ]
 
 
-block1 =
+block1 model =
     E.column
-        -- [ EBackground.color <| E.rgb255 
         [ E.height (E.px 670)
         , E.width E.fill
         , E.paddingXY 0 70
@@ -150,13 +149,9 @@ block1 =
             , E.centerX
             -- , E.spacing 80
             ]
-            [ makePost 
-                SampleData.data1
-            , makePost
-                SampleData.data2
-            , makePost
-                SampleData.data3
-            ]
+            (List.map makePost (List.take 3 model.expoPosts))
+            
+            
         , E.el
             [ E.width E.fill
             , E.height (E.px 50)
@@ -445,7 +440,7 @@ linkLINK =
     (Msg.LinkClicked (Browser.Internal url))
 
 url = 
-    case (Url.fromString "http://127.0.0.1:7070/expo") of
+    case (Url.fromString "http://127.0.0.1:7070/expo") of -- FIXME
         Just val ->
             val
         Nothing ->
@@ -457,18 +452,19 @@ url =
             , fragment = Nothing
             }
 
-makePost { author, title, likes, postPic, profilePic, datePosted } =
+makePost { author, title, likes, postPic, datePosted } =
     let
         width = 400
         imageHeight = dontShowPastX 16 9 width
+        date = String.fromInt datePosted
+        profilePic = "../../../data/default/default_profile_pic.jpg"-- TODO: get it from reddit
     in
     E.el
         [ E.width E.fill
         ]
         <| E.column
             [ E.width (E.px width)
-            , E.height (E.px 372)
-            -- , EBackground.color (E.rgb255 246 246 246)
+            , E.height (E.px 342)
             , E.centerX
             ]
             [ E.html
@@ -486,7 +482,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                 ]
                 [ E.row -- Likes and Comments row
                     [ E.width E.fill
-                    , E.paddingEach { top = 0, right = 14, bottom = 14 , left = 14 }
+                    , E.paddingEach { top = 14, right = 7, bottom = 14 , left = 7 }
                     , E.spacing 12
                     , EFont.size 14
                     , EFont.family
@@ -499,10 +495,10 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     , E.el
                         [ E.alignRight
                         ]
-                        <| E.text datePosted
+                        <| E.text date
                     ]
                 , E.el -- TITLE
-                    [ E.paddingEach { top = 0, right = 0, bottom = 14 , left = 14 }
+                    [ E.paddingEach { top = 0, right = 0, bottom = 14 , left = 7 }
                     , EFont.color (E.rgb255 10 10 10)
                     , EFont.size 19
                     , EFont.extraBold
@@ -515,7 +511,7 @@ makePost { author, title, likes, postPic, profilePic, datePosted } =
                     ]
                     <| E.text title
                 , E.row -- author info
-                    [ E.paddingEach { top = 0, right = 0, bottom = 8 , left = 14}
+                    [ E.paddingEach { top = 0, right = 0, bottom = 8 , left = 7}
                     , E.width E.fill
                     ]
                     [ E.row
