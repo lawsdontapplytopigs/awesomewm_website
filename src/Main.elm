@@ -9,6 +9,8 @@ import Json.Decode as JDecode
 
 import Msg
 
+import Time
+
 import Url
 import Url.Parser
 
@@ -168,7 +170,31 @@ update msg model =
                             -- back, and makes the page taller. 
                             -- Then, the 29 other requests will also come, and
                             -- we'll have the same post 30 times.
-                            -- so what we do, is we just 
+
+                            -- So what we do, is we just store a boolean telling
+                            -- us "are we below the threshold already?" If it's
+                            -- set to "False", and we scroll below, we make a
+                            -- request, set the bool to "True", and NOW, if we
+                            -- scroll in that area below the threshold, it will
+                            -- check: are we already below the threshold? And
+                            -- now it will be "True", so it won't make 
+                            -- additional redundant requests.
+
+                            -- So how does it get set back to tell us that we're
+                            -- now above the threshold?
+
+                            -- There's two ways, and one of them is a bug:
+                            -- One way is to wait for the request to come back,
+                            -- and then boom we're done: the page grows in 
+                            -- height and we set "are we below the threshold" 
+                            -- to "False" (because we are).
+
+                            -- But you can also just scroll up above the 
+                            -- threshold... then scroll down.. then up, down
+                            -- and by this point, it's going to make the same 
+                            -- request more than once. So we're going to have
+                            -- duplicate posts.
+                            
                             if model.belowThresholdAlready then
                                 Cmd.none 
                             else
@@ -251,7 +277,6 @@ update msg model =
                                 True
                             else
                                 False
-                        -- _ = Debug.log "ok posts, ok after" "uhh"
                     in
                     if weShouldFlushBuffer then
                         ( 
@@ -274,7 +299,7 @@ update msg model =
                             }
                         ,
                             let
-                                _ = Debug.log "making request with after::::::" after
+                                _ = Debug.log "making request with after" after
                             in
                             Http.get
                                 -- TODO: use the elm url encoder for the url here
@@ -460,12 +485,15 @@ type alias Post =
     , likes : Int
     , domain : String
     , postPic : String
-    , datePosted : Int
+    , datePosted : Time.Posix
     }
 
 decodePost : JDecode.Decoder Post
 decodePost =
     let
+        utcSecsToPosix sex = -- lol he said secs
+            Time.millisToPosix (sex * 1000)
+        
         postDataDecoder =
             JDecode.map6 Post
                 ( JDecode.field "author" JDecode.string )
@@ -473,7 +501,7 @@ decodePost =
                 ( JDecode.field "ups" JDecode.int )
                 ( JDecode.field "domain" JDecode.string )
                 ( JDecode.field "url" JDecode.string )
-                ( JDecode.field "created_utc" JDecode.int)
+                ( JDecode.map utcSecsToPosix (JDecode.field "created_utc" JDecode.int))
     in
         JDecode.field "data" postDataDecoder
 

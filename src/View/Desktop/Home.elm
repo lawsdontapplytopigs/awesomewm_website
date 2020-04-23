@@ -456,7 +456,7 @@ makePost { author, title, likes, postPic, datePosted } =
     let
         width = 400
         imageHeight = dontShowPastX 16 9 width
-        date = String.fromInt datePosted
+        date = View.Desktop.Lib.utcSecondsToDateString datePosted
         profilePic = "../../../data/default/default_profile_pic.jpg"-- TODO: get it from reddit
     in
     E.el
@@ -503,7 +503,7 @@ makePost { author, title, likes, postPic, datePosted } =
                     , EFont.size 19
                     , EFont.extraBold
                     , E.htmlAttribute <| Html.Attributes.style "text-transform" "uppercase"
-                    , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-8deg)"
+                    , E.htmlAttribute <| Html.Attributes.style "transform" "skew(-5deg)"
                     , EFont.family
                         [ EFont.typeface Palette.font2
                         , EFont.sansSerif

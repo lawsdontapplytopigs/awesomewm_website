@@ -40,6 +40,7 @@
 [ ] Set up something so that you can't scroll down, it makes a request, then you
     scroll up, down again, and it makes the same request again
 [ ] Add some sort of "loading" animation at the bottom of the page
+[ ] Make the space between the `/community` text and the footer larger
 
 [ ] Write the backend properly
 
