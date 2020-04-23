@@ -73,7 +73,7 @@ mainDocumentColumn model =
                     [ E.paddingEach { top = 0, right = 0, bottom = unit1, left = 0 }
                     ]
                     [ E.text "You can join us in the "
-                    , E.html <| Html.code [Html.Attributes.style "font-family" "RobotoMono Nerd Font" ] [ Html.text "#awesome" ]
+                    , E.html <| Html.code [Html.Attributes.style "font-family" Palette.font3 ] [ Html.text "#awesome" ]
                     , E.text " channel on the "
                     , View.Desktop.Lib.myNewTabLink "https://www.oftc.net" "OFTC"
                     , E.text " IRC network."
@@ -132,7 +132,7 @@ mainDocumentColumn model =
                         , E.text "Post your config on the "
                         , View.Desktop.Lib.myNewTabLink "https://www.reddit.com/r/awesomewm/" "awesome subreddit"
                         , E.text ", tag it with "
-                        , E.html <| Html.code [Html.Attributes.style "font-family" "RobotoMono Nerd Font" ] [ Html.text "[Screenshot]" ]
+                        , E.html <| Html.code [Html.Attributes.style "font-family" Palette.font3 ] [ Html.text "[Screenshot]" ]
                         , E.text " in the title and be ready to see it on the "
                         , E.el [ EFont.medium, EFont.color <| E.rgb255 0 0 0 ] <| E.text "AwesomeWM "
                         , View.Desktop.Lib.myNewTabLink "https://www.awesomewm.org/expo" "site's expo section."

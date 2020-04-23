@@ -209,7 +209,7 @@ mainDocumentColumn model =
                         [ E.text """
                             After installing awesome, you can check if you are affected by this problem by
                             running """
-                        , E.html <| Html.code [Html.Attributes.style "font-family" "RobotoMono Nerd Font" ] [ Html.text "awesome -v" ]
+                        , E.html <| Html.code [Html.Attributes.style "font-family" Palette.font3 ] [ Html.text "awesome -v" ]
                         , E.text """. If an error message is displayed instead of LGI version's
                             number, you are likely affected."""
                         ]
@@ -388,7 +388,7 @@ mainDocumentColumn model =
                         [ E.paddingEach { top = 0, right = 0, bottom = unit0, left = unit1}
                         ]
                         [ E.html <| Html.code 
-                            [ Html.Attributes.style "font-family" "RobotoMono Nerd Font" ] 
+                            [ Html.Attributes.style "font-family" Palette.font3 ] 
                             [ Html.text "git clone https://github.com/awesomeWM/awesome.git"
                             ]
                         ]

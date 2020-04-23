@@ -12437,6 +12437,7 @@ var $mdgriffith$elm_ui$Element$Font$family = function (families) {
 			families));
 };
 var $author$project$Palette$font1 = 'Roboto';
+var $author$project$Palette$font3 = 'Roboto Mono';
 var $mdgriffith$elm_ui$Internal$Model$Right = 2;
 var $mdgriffith$elm_ui$Element$alignRight = $mdgriffith$elm_ui$Internal$Model$AlignX(2);
 var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
@@ -12825,7 +12826,7 @@ var $author$project$View$Desktop$Community$mainDocumentColumn = function (model)
 											$elm$html$Html$code,
 											_List_fromArray(
 												[
-													A2($elm$html$Html$Attributes$style, 'font-family', 'RobotoMono Nerd Font')
+													A2($elm$html$Html$Attributes$style, 'font-family', $author$project$Palette$font3)
 												]),
 											_List_fromArray(
 												[
@@ -12913,7 +12914,7 @@ var $author$project$View$Desktop$Community$mainDocumentColumn = function (model)
 													$elm$html$Html$code,
 													_List_fromArray(
 														[
-															A2($elm$html$Html$Attributes$style, 'font-family', 'RobotoMono Nerd Font')
+															A2($elm$html$Html$Attributes$style, 'font-family', $author$project$Palette$font3)
 														]),
 													_List_fromArray(
 														[
@@ -13843,7 +13844,7 @@ var $author$project$View$Desktop$Download$mainDocumentColumn = function (model) 
 													$elm$html$Html$code,
 													_List_fromArray(
 														[
-															A2($elm$html$Html$Attributes$style, 'font-family', 'RobotoMono Nerd Font')
+															A2($elm$html$Html$Attributes$style, 'font-family', $author$project$Palette$font3)
 														]),
 													_List_fromArray(
 														[
@@ -14177,7 +14178,7 @@ var $author$project$View$Desktop$Download$mainDocumentColumn = function (model) 
 													$elm$html$Html$code,
 													_List_fromArray(
 														[
-															A2($elm$html$Html$Attributes$style, 'font-family', 'RobotoMono Nerd Font')
+															A2($elm$html$Html$Attributes$style, 'font-family', $author$project$Palette$font3)
 														]),
 													_List_fromArray(
 														[
