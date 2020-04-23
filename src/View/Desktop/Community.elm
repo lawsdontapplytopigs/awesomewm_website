@@ -236,7 +236,7 @@ mainDocumentColumn model =
                     ]
                     <| E.text "Authors"
                 , E.column
-                    [ E.paddingEach { top = 0, right = 0, bottom = unit1, left = 0 }
+                    [ E.paddingEach { top = 0, right = 0, bottom = unit3, left = 0 }
                     , E.spacing unit0
                     ]
                     [ E.paragraph

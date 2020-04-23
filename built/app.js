@@ -13066,7 +13066,7 @@ var $author$project$View$Desktop$Community$mainDocumentColumn = function (model)
 								_List_fromArray(
 									[
 										$mdgriffith$elm_ui$Element$paddingEach(
-										{m: $author$project$View$Desktop$Community$unit1, o: 0, p: 0, q: 0}),
+										{m: $author$project$View$Desktop$Community$unit3, o: 0, p: 0, q: 0}),
 										$mdgriffith$elm_ui$Element$spacing($author$project$View$Desktop$Community$unit0)
 									]),
 								_List_fromArray(
