@@ -20,7 +20,7 @@
             - `document.body.scrollHeight` gets you the height of the document
             - `document.body.offsetHeight` gets you the height of the viewport
 [x] Maybe make the little info card smaller on the `/expo` page
-[ ] Make the date work properly
+[x] Make the date work properly
 [ ] Make the titles of the posts link to the reddit post
 [ ] Make the user tag link to the reddit user
 [ ] Restrict the length of the title

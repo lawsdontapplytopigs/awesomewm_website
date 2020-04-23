@@ -133,7 +133,8 @@ update msg model =
                     ( model, Nav.load href )
         Msg.UrlChanged url ->
             ( { model | url = url }
-            , Nav.load <| Url.toString url
+            -- , Nav.load <| Url.toString url
+            , (Nav.pushUrl model.key (Url.toString url))
             )
 
         ----------------
@@ -210,8 +211,8 @@ update msg model =
                                             False ->
                                                 Cmd.none
                                     Nothing ->
-                                        Debug.log "window and document data, but AFTER IS NOTHING" Cmd.none
-                                        -- Cmd.none
+                                        -- Debug.log "window and document data, but AFTER IS NOTHING" Cmd.none
+                                        Cmd.none
                     in
                         ( { model
                             | belowThresholdAlready = shouldWeLoad
@@ -230,7 +231,7 @@ update msg model =
             case decodedJson of
                 Ok data ->
                     let
-                        shouldWeLoad = Debug.log "initial 'should we load'" <| shouldWeLoadMorePosts 
+                        shouldWeLoad = shouldWeLoadMorePosts 
                             (View.Desktop.Expo.postHeight 
                                 + View.Desktop.Expo.spacingUnit)
                             data
@@ -270,7 +271,7 @@ update msg model =
                 (Ok after, Ok posts) ->
                     let
                         filteredPosts = List.filter validatePost posts
-                        currentPostBuffer = Debug.log "currentPostBuffer" <|
+                        currentPostBuffer =
                             model.postBuffer ++ filteredPosts
                         weShouldFlushBuffer = 
                             if (List.length currentPostBuffer) >= model.postsToLoadOnEachIteration then
@@ -298,9 +299,9 @@ update msg model =
                             , belowThresholdAlready = True
                             }
                         ,
-                            let
-                                _ = Debug.log "making request with after" after
-                            in
+                            -- let
+                            --     _ = Debug.log "making request with after" after
+                            -- in
                             Http.get
                                 -- TODO: use the elm url encoder for the url here
                                 { url = ("https://api.reddit.com/r/unixporn/top/?t=all&limit=" ++ (String.fromInt model.postsToLoadOnEachIteration) ++ "&after=" ++ after)
@@ -316,14 +317,14 @@ update msg model =
                         -- 2. clear the `expoPosts` array
                         -- 3. probably log it in the console
                 (Ok after, Err posts) ->
-                    Debug.log "Ok after, Err decoding posts " ( model, Cmd.none )
+                    -- Debug.log "Ok after, Err decoding posts " ( model, Cmd.none )
+                    ( model, Cmd.none )
                 (Err after, Ok posts) ->
-                    Debug.log "EROR decoding AFTER" ( model, Cmd.none )
+                    -- Debug.log "EROR decoding AFTER" ( model, Cmd.none )
+                    ( model, Cmd.none )
                 (Err after, Err posts)->
-                    Debug.log "ok, EROR decoding both things wtf" ( model, Cmd.none )
-                    -- ( {model | redditJson = Debug.log "" <|JDecode.errorToString after}
-                    -- , Cmd.none )
-                    -- ( model, Cmd.none )
+                    -- Debug.log "ok, EROR decoding both things wtf" ( model, Cmd.none )
+                    ( model, Cmd.none )
 
         ---------------
         -- Expo page

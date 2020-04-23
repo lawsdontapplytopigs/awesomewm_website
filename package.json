@@ -9,6 +9,5 @@
   "author": "Juganaru Adrian <lawsdontapplytopigs@gmail.com>",
   "license": "GPL v2",
   "dependencies": {
-    "parcel": "^1.12.4"
   }
 }
