@@ -457,7 +457,7 @@ makePost { author, title, likes, postPic, datePosted } =
         width = 400
         imageHeight = dontShowPastX 16 9 width
         date = View.Desktop.Lib.utcSecondsToDateString datePosted
-        profilePic = "../../../data/default/default_profile_pic.jpg"-- TODO: get it from reddit
+        profilePic = "./default_profile_pic.jpg"-- TODO: get it from reddit
     in
     E.el
         [ E.width E.fill

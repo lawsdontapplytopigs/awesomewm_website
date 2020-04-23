@@ -14636,7 +14636,7 @@ var $author$project$View$Desktop$Expo$makeBigPost = function (_v0) {
 	var postPic = _v0.eL;
 	var datePosted = _v0.d0;
 	var width = $author$project$View$Desktop$Expo$postWidth;
-	var profilePic = '../../../data/default/default_profile_pic.jpg';
+	var profilePic = './default_profile_pic.jpg';
 	var imageHeight = $elm$core$Basics$round((9 / 16) * width);
 	var height = $author$project$View$Desktop$Expo$postHeight;
 	var date = $author$project$View$Desktop$Lib$utcSecondsToDateString(datePosted);
@@ -15619,7 +15619,7 @@ var $author$project$View$Desktop$Home$makePost = function (_v0) {
 	var postPic = _v0.eL;
 	var datePosted = _v0.d0;
 	var width = 400;
-	var profilePic = '../../../data/default/default_profile_pic.jpg';
+	var profilePic = './default_profile_pic.jpg';
 	var imageHeight = A3($author$project$View$Desktop$Home$dontShowPastX, 16, 9, width);
 	var date = $author$project$View$Desktop$Lib$utcSecondsToDateString(datePosted);
 	return A2(

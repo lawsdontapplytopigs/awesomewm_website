@@ -244,7 +244,7 @@ makeBigPost { author, title, likes, postPic, datePosted } =
         imageHeight = round <| (9/16) * width
 
         date = View.Desktop.Lib.utcSecondsToDateString datePosted
-        profilePic = "../../../data/default/default_profile_pic.jpg"
+        profilePic = "./default_profile_pic.jpg"
     in
         E.column
             [ E.width E.fill
