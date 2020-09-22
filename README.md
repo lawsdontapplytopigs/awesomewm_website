@@ -1,7 +1,7 @@
 
 **Desktop**
 
-![desktop preview](desktop_preview.png?raw=true "Desktop Preview)
+![desktop preview](screenshots/desktop_preview.png?raw=true "Desktop Preview")
 
 # 1. Building
 
